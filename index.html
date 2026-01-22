@@ -136,8 +136,12 @@
                     const alpha = isHead ? 1 : (i + 1) / this.trail.length * 0.4; // Head fully visible, trails faint
                     ctx.globalAlpha = alpha;
                     let color = 'rgba(255, 255, 255, 1)'; // White for head
-                    if (!isHead && i > this.trail.length * 0.3) {
-                        color = i > this.trail.length * 0.6 ? 'rgba(255, 0, 0, 1)' : 'rgba(0, 0, 255, 1)'; // Red for tail, blue for middle
+                    if (!isHead) {
+                        const ratio = i / (this.trail.length - 1);
+                        const r = Math.floor(255 * ratio);
+                        const g = 0;
+                        const b = Math.floor(255 * (1 - ratio));
+                        color = `rgba(${r}, ${g}, ${b}, 1)`;
                     }
                     ctx.fillStyle = color;
                     ctx.beginPath();
