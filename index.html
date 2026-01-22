@@ -21,14 +21,31 @@
             padding: 10px;
             border-radius: 5px;
             color: white;
+            display: none;
         }
         #controls input {
             margin: 5px;
+        }
+        #settingsBtn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        #settingsBtn:hover {
+            background: rgba(0, 0, 0, 0.9);
         }
     </style>
 </head>
 <body>
     <canvas id="canvas"></canvas>
+    <button id="settingsBtn">Settings</button>
     <div id="controls">
         <label for="emissionRate">Emission Rate: <span id="emissionRateValue">10</span></label>
         <input type="range" id="emissionRate" min="1" max="50" value="10">
@@ -66,6 +83,16 @@
         speedSlider.addEventListener('input', () => speedValue.textContent = speedSlider.value);
         trailLengthSlider.addEventListener('input', () => trailLengthValue.textContent = trailLengthSlider.value);
         starSizeSlider.addEventListener('input', () => starSizeValue.textContent = starSizeSlider.value);
+
+        const settingsBtn = document.getElementById('settingsBtn');
+        const controls = document.getElementById('controls');
+        settingsBtn.addEventListener('click', () => {
+            if (controls.style.display === 'none' || controls.style.display === '') {
+                controls.style.display = 'block';
+            } else {
+                controls.style.display = 'none';
+            }
+        });
 
         class Particle {
             constructor() {
