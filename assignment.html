@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Quest: Starfield Assignment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+        }
+        h2 {
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        strong {
+            font-weight: bold;
+        }
+        .highlight {
+            background-color: #e7f3ff;
+            padding: 10px;
+            border-left: 5px solid #007acc;
+            margin: 20px 0;
+        }
+        .requirements {
+            background-color: #fff3cd;
+            padding: 15px;
+            border: 1px solid #ffeeba;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .challenge {
+            background-color: #d1ecf1;
+            padding: 15px;
+            border: 1px solid #bee5eb;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Code Quest: Starfield Assignment</h1>
+
+    <h2>Overview</h2>
+    <p><strong>Particle systems</strong> are a fundamental technique in computer graphics and simulation, used to create complex visual phenomena like fire, water, and magical effects. These systems manage collections of particles, each with properties like position, velocity, and lifetime, that collectively produce emergent effects through the application of basic physical rules.</p>
+    <p>Particle emitters control the creation of particles, while physics engines govern their motion and interaction, applying forces like gravity and wind. The rendering pipeline then brings these particles to life visually, often employing techniques like GPU acceleration for optimization.</p>
+
+    <h2>What are Particle Systems?</h2>
+    <p>In scientific visualization, particle systems help researchers model the spread of airborne viruses or simulate galaxy formation. Game developers use them to create realistic smoke from explosions or flowing lava in volcanic environments. The enduring success of particle systems highlights the power of simple rules to generate complex and visually compelling results.</p>
+
+    <h3>Applications Across Fields</h3>
+    <p>Particle systems are used in many different domains:</p>
+    <ul>
+        <li>🏥 <strong>Medicine & Public Health</strong> - Disease Transmission Modeling</li>
+        <li>⚗️ <strong>Chemistry & Materials Science</strong> - Molecular Dynamics Simulation</li>
+        <li>🌌 <strong>Astronomy & Astrophysics</strong> - Galaxy Formation Simulation</li>
+        <li>🌍 <strong>Environmental Science</strong> - Pollution & Climate Modeling</li>
+        <li>🏛️ <strong>Architecture & Urban Planning</strong> - Crowd Flow Simulation</li>
+        <li>🎬 <strong>Film & Game Development</strong> - Visual Effects</li>
+    </ul>
+
+    <h3>What is a Particle?</h3>
+    <p>Every effect you see—fire, smoke, stars, magic—is made of individual particles. Each particle is simply a bundle of numbers: where it is, how fast it's moving, how old it is.</p>
+    <p><strong>Common particle properties include:</strong></p>
+    <ul>
+        <li>Position (X, Y coordinates)</li>
+        <li>Velocity (X, Y movement)</li>
+        <li>Age (how long the particle has existed)</li>
+        <li>Lifetime (how long the particle will live)</li>
+        <li>Size (visual dimensions)</li>
+        <li>Opacity (transparency level)</li>
+    </ul>
+
+    <hr>
+
+    <h2>Assignment: Creating a Starfield</h2>
+
+    <h3>Main Task</h3>
+    <p>Create a webpage that uses a particle system to create a starfield effect.</p>
+    <div class="requirements">
+        <strong>Requirements:</strong>
+        <ul>
+            <li>Implement a starfield similar to the reference animation</li>
+            <li>Stars should have a <strong>trail effect</strong></li>
+            <li>Include sliders that allow users to control attributes of the animation</li>
+            <li>The system should demonstrate the core principles of particle systems</li>
+        </ul>
+    </div>
+
+    <h3>Stretch Challenge</h3>
+    <div class="challenge">
+        <p>Modify the position of the sliders so that they do not cover up so much of the animation.</p>
+        <p><strong>Suggested approach:</strong></p>
+        <ul>
+            <li>Move the sliders outside of the display area</li>
+            <li>Explore other creative positioning solutions</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h2>Key Concepts to Remember</h2>
+    <div class="highlight">
+        <p><strong>Simple Rules, Complex Beauty</strong> - Particle effects are created by applying simple rules to individual particles. Each particle follows basic physics, but together they create complex and beautiful visual effects.</p>
+        <p>The success of your starfield will depend on:</p>
+        <ul>
+            <li>Proper particle emission and lifecycle management</li>
+            <li>Realistic physics for particle movement</li>
+            <li>Effective rendering and visual effects</li>
+            <li>Interactive controls for user experimentation</li>
+        </ul>
+    </div>
+</body>
+</html>
