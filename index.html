@@ -132,11 +132,12 @@
                 ctx.save();
                 const size = parseInt(starSizeSlider.value);
                 for (let i = 0; i < this.trail.length; i++) {
-                    const alpha = (i + 1) / this.trail.length * 0.6; // Fainter for shadows
+                    const isHead = i === this.trail.length - 1;
+                    const alpha = isHead ? 1 : (i + 1) / this.trail.length * 0.4; // Head fully visible, trails faint
                     ctx.globalAlpha = alpha;
-                    let color = 'rgba(255, 255, 255, ${alpha})'; // Default white
-                    if (i > this.trail.length * 0.3) {
-                        color = i > this.trail.length * 0.6 ? 'rgba(255, 0, 0, ${alpha})' : 'rgba(0, 0, 255, ${alpha})'; // Red for tail, blue for middle
+                    let color = 'rgba(255, 255, 255, 1)'; // White for head
+                    if (!isHead && i > this.trail.length * 0.3) {
+                        color = i > this.trail.length * 0.6 ? 'rgba(255, 0, 0, 1)' : 'rgba(0, 0, 255, 1)'; // Red for tail, blue for middle
                     }
                     ctx.fillStyle = color;
                     ctx.beginPath();
