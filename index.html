@@ -43,26 +43,12 @@
             align-items: center;
             justify-content: center;
         }
-        #closeBtn {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 3px;
-            cursor: pointer;
-            margin-bottom: 10px;
-        }
-        #closeBtn:hover {
-            background: rgba(255, 255, 255, 0.4);
-        }
     </style>
 </head>
 <body>
     <canvas id="canvas"></canvas>
     <button id="settingsBtn">⚙️</button>
     <div id="controls">
-        <button id="closeBtn">Close</button>
-        <br>
         <label for="emissionRate">Emission Rate: <span id="emissionRateValue">10</span></label>
         <input type="range" id="emissionRate" min="1" max="50" value="10">
         <br>
@@ -102,12 +88,12 @@
 
         const settingsBtn = document.getElementById('settingsBtn');
         const controls = document.getElementById('controls');
-        const closeBtn = document.getElementById('closeBtn');
         settingsBtn.addEventListener('click', () => {
-            controls.style.display = 'block';
-        });
-        closeBtn.addEventListener('click', () => {
-            controls.style.display = 'none';
+            if (controls.style.display === 'none' || controls.style.display === '') {
+                controls.style.display = 'block';
+            } else {
+                controls.style.display = 'none';
+            }
         });
 
         class Particle {
@@ -148,7 +134,11 @@
                 for (let i = 0; i < this.trail.length; i++) {
                     const alpha = (i + 1) / this.trail.length * 0.6; // Fainter for shadows
                     ctx.globalAlpha = alpha;
-                    ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`; // White stars
+                    let color = 'rgba(255, 255, 255, ${alpha})'; // Default white
+                    if (i > this.trail.length * 0.3) {
+                        color = i > this.trail.length * 0.6 ? 'rgba(255, 0, 0, ${alpha})' : 'rgba(0, 0, 255, ${alpha})'; // Red for tail, blue for middle
+                    }
+                    ctx.fillStyle = color;
                     ctx.beginPath();
                     ctx.arc(this.trail[i].x, this.trail[i].y, size, 0, Math.PI * 2);
                     ctx.fill();
