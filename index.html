@@ -142,17 +142,16 @@
             }
 
             draw() {
-                if (this.trail.length < 2) return;
+                if (this.trail.length < 1) return;
                 ctx.save();
-                ctx.strokeStyle = 'white';
-                ctx.lineWidth = parseInt(starSizeSlider.value);
-                for (let i = 0; i < this.trail.length - 1; i++) {
-                    const alpha = (i + 1) / this.trail.length;
-                    ctx.globalAlpha = alpha * 0.8; // Fade to 80% max
+                const size = parseInt(starSizeSlider.value);
+                for (let i = 0; i < this.trail.length; i++) {
+                    const alpha = (i + 1) / this.trail.length * 0.6; // Fainter for shadows
+                    ctx.globalAlpha = alpha;
+                    ctx.fillStyle = `rgba(100, 150, 255, ${alpha})`; // Blue hue
                     ctx.beginPath();
-                    ctx.moveTo(this.trail[i].x, this.trail[i].y);
-                    ctx.lineTo(this.trail[i + 1].x, this.trail[i + 1].y);
-                    ctx.stroke();
+                    ctx.arc(this.trail[i].x, this.trail[i].y, size, 0, Math.PI * 2);
+                    ctx.fill();
                 }
                 ctx.restore();
             }
