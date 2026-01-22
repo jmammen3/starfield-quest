@@ -33,10 +33,15 @@
             background: rgba(0, 0, 0, 0.7);
             color: white;
             border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
+            padding: 10px;
+            border-radius: 50%;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 20px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         #closeBtn {
             background: rgba(255, 255, 255, 0.2);
@@ -54,7 +59,7 @@
 </head>
 <body>
     <canvas id="canvas"></canvas>
-    <button id="settingsBtn">Settings</button>
+    <button id="settingsBtn">⚙️</button>
     <div id="controls">
         <button id="closeBtn">Close</button>
         <br>
@@ -138,14 +143,18 @@
 
             draw() {
                 if (this.trail.length < 2) return;
-                ctx.beginPath();
-                ctx.moveTo(this.trail[0].x, this.trail[0].y);
-                for (let i = 1; i < this.trail.length; i++) {
-                    ctx.lineTo(this.trail[i].x, this.trail[i].y);
-                }
+                ctx.save();
                 ctx.strokeStyle = 'white';
                 ctx.lineWidth = parseInt(starSizeSlider.value);
-                ctx.stroke();
+                for (let i = 0; i < this.trail.length - 1; i++) {
+                    const alpha = (i + 1) / this.trail.length;
+                    ctx.globalAlpha = alpha * 0.8; // Fade to 80% max
+                    ctx.beginPath();
+                    ctx.moveTo(this.trail[i].x, this.trail[i].y);
+                    ctx.lineTo(this.trail[i + 1].x, this.trail[i + 1].y);
+                    ctx.stroke();
+                }
+                ctx.restore();
             }
         }
 
