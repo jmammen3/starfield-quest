@@ -148,7 +148,7 @@
                 for (let i = 0; i < this.trail.length; i++) {
                     const alpha = (i + 1) / this.trail.length * 0.6; // Fainter for shadows
                     ctx.globalAlpha = alpha;
-                    ctx.fillStyle = `rgba(100, 150, 255, ${alpha})`; // Blue hue
+                    ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`; // White stars
                     ctx.beginPath();
                     ctx.arc(this.trail[i].x, this.trail[i].y, size, 0, Math.PI * 2);
                     ctx.fill();
